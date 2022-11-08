@@ -1,0 +1,12 @@
+.header__categories {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+.header__categories span {
+  font-size: 20px;
+}
+.header__categories svg {
+  height: 25px;
+  width: 40px;
+}
