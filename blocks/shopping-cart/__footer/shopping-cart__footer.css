@@ -1,0 +1,12 @@
+.shopping-cart__footer {
+  padding: 20px 90px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e1e1e1;
+}
+
+.shopping-cart__footer h4 {
+  font-size: 18px;
+  text-align: center;
+  font-weight: normal;
+}

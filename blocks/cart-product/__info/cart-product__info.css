@@ -1,0 +1,7 @@
+.cart-product__info {
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}

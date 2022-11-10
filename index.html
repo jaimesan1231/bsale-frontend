@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bsale Test</title>
     <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://kit.fontawesome.com/e7f8ae5afa.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header class="header">
@@ -51,31 +55,35 @@
         </button>
       </form>
       <nav class="header__nav">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-house-door-fill"
-          viewBox="0 0 16 16"
-          onclick="getProducts()"
-        >
-          <path
-            d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"
-          />
-        </svg>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-cart-fill"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
-          />
-        </svg>
+        <i class="fa-solid fa-house" id="home-icon"></i>
+        <i class="fa-solid fa-cart-shopping" id="cart-button"></i>
+        <div class="shopping-cart" id="shopping-cart">
+          <h3 class="shopping-cart__title">Carrito de compras</h3>
+          <ul class="shopping-cart__list" id="cart-list">
+            <template id="template-cart">
+              <li class="cart-product" id="cart-item">
+                <img
+                  class="cart-product__image"
+                  src="https://dojiw2m9tvv09.cloudfront.net/11132/product/alto8532.jpg"
+                  alt=""
+                />
+                <div class="cart-product__info">
+                  <h3 class="cart-product__name">Pisco Alto Del Carmen 35º</h3>
+                  <p class="cart-product__price">S/ 98</p>
+                  <p class="cart-product__cant">Cantidad: <span>2</span></p>
+                </div>
+                <i class="fa-solid fa-trash-can delete-icon"></i>
+              </li>
+            </template>
+          </ul>
+          <div class="shopping-cart__footer" id="cart-footer">
+            <h4>No hay productos en el carrito</h4>
+            <template id="template-footer">
+              <span>Subtotal</span>
+              <span class="shopping-cart__subtotal" id="subtotal">S/ 198</span>
+            </template>
+          </div>
+        </div>
       </nav>
     </header>
     <main>
@@ -106,20 +114,7 @@
         <div class="dropdown">
           <div class="dropdown__header" id="dropdown-header">
             <span class="dropdown__title" id="dropdown-title">Ordenar por</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-chevron-compact-down"
-              viewBox="0 0 16 16"
-              id="arrow"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z"
-              />
-            </svg>
+            <i class="fa-solid fa-caret-down" id="arrow"></i>
           </div>
           <div class="dropdown__box" id="dropdown-box">
             <ul class="dropdown__list">
@@ -130,52 +125,32 @@
           </div>
         </div>
       </div>
-      <div class="products-container" id="products"></div>
-      <template id="template-card">
-        <div class="card">
-          <div class="card__image">
-            <img src="" alt="" />
-          </div>
-          <h2 class="card__title"></h2>
-          <div class="card__footer">
-            <span class="card__price"></span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-cart-plus-fill"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"
-              />
-            </svg>
-          </div></div
-      ></template>
-      <template id="template-discount">
-        <div class="card">
-          <div class="card__image">
-            <img src="" alt="" />
-          </div>
-          <h2 class="card__title"></h2>
-          <div class="card__footer">
-            <span class="card__price"> </span>
-            <span class="card__old-price">xddxdx</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-cart-plus-fill"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM9 5.5V7h1.5a.5.5 0 0 1 0 1H9v1.5a.5.5 0 0 1-1 0V8H6.5a.5.5 0 0 1 0-1H8V5.5a.5.5 0 0 1 1 0z"
-              />
-            </svg>
-          </div></div
-      ></template>
+
+      <div class="products-container" id="products">
+        <template id="template-card">
+          <div class="card">
+            <div class="card__image">
+              <img src="" alt="" />
+            </div>
+            <h2 class="card__title"></h2>
+            <div class="card__footer">
+              <span class="card__price"></span>
+              <i class="fa-solid fa-cart-plus cart-icon"></i>
+            </div></div
+        ></template>
+        <template id="template-discount">
+          <div class="card">
+            <div class="card__image">
+              <img src="" alt="" />
+            </div>
+            <h2 class="card__title"></h2>
+            <div class="card__footer">
+              <span class="card__price"> </span>
+              <span class="card__old-price">xddxdx</span>
+              <i class="fa-solid fa-cart-plus cart-icon"></i>
+            </div></div
+        ></template>
+      </div>
     </main>
     <footer></footer>
     <script src="./index.js"></script>

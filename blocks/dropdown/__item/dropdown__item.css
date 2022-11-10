@@ -2,8 +2,10 @@
   padding: 10px;
   background-color: #f1f1f1;
   user-select: none;
+  font-size: 18px;
 }
 
 .dropdown__item:hover {
   background-color: #70747e;
+  color: white;
 }
