@@ -1,0 +1,13 @@
+.sidebar__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+}
+
+.sidebar__header svg {
+  width: 40px;
+  height: 30px;
+  cursor: pointer;
+}

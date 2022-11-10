@@ -9,8 +9,20 @@
 @import url("./blocks/header/__nav/header__nav.css");
 
 @import url("./blocks/search/search.css");
-@import url("./blocks/search/__icon/search__icon.css");
 @import url("./blocks/search/__input/search__input.css");
+@import url("./blocks/search/__button/search__button.css");
+@import url("./blocks/search/__icon/search__icon.css");
+
+@import url("./blocks/title/title.css");
+
+@import url("./blocks/filter-section/filter-section.css");
+
+@import url("./blocks/dropdown/dropdown.css");
+@import url("./blocks/dropdown/__box/dropdown__box.css");
+@import url("./blocks/dropdown/__header/dropdown__header.css");
+@import url("./blocks/dropdown/__item/dropdown__item.css");
+@import url("./blocks/dropdown/__list/dropdown__list.css");
+@import url("./blocks/dropdown/__title/drpodown__title.css");
 
 @import url("./blocks/products-container/products-container.css");
 
@@ -19,10 +31,13 @@
 @import url("./blocks/card/__image/card__image.css");
 @import url("./blocks/card/__price/card__price.css");
 @import url("./blocks/card/__title/card__title.css");
+@import url("./blocks/card/__old-price/card__old-price.css");
 
 @import url("./blocks/sidebar/sidebar.css");
 @import url("./blocks/sidebar/__item/sidebar__item.css");
 @import url("./blocks/sidebar/__list/sidebar__list.css");
+@import url("./blocks/sidebar/__title/sidebar__title.css");
+@import url("./blocks/sidebar/__header/sidebar__header.css");
 
 * {
   margin: 0;
@@ -31,4 +46,5 @@
 }
 body {
   font-family: "Roboto", sans-serif;
+  background-color: #f1f1f1;
 }

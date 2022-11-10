@@ -1,2 +1,11 @@
 .sidebar__item {
+  padding: 10px;
+  font-size: 18px;
+  margin: 10px 0;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.sidebar__item:hover {
+  background-color: #70747e;
+  color: white;
 }

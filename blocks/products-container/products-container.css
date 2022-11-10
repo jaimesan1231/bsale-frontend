@@ -1,9 +1,8 @@
 .products-container {
-  width: 80%;
-  background-color: yellow;
+  width: 70%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 20px 0;
+  gap: 20px 20px;
   margin-top: 20px;
 }

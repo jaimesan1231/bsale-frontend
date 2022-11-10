@@ -1,0 +1,14 @@
+.card__old-price {
+  position: relative;
+  color: #8b8b8b;
+  left: -30px;
+}
+.card__old-price::after {
+  content: "";
+  width: 100%;
+  background-color: #8b8b8b;
+  height: 1px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+}

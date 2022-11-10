@@ -1,0 +1,7 @@
+.dropdown {
+  width: 200px;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}

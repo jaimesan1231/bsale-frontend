@@ -1,0 +1,9 @@
+.dropdown__item {
+  padding: 10px;
+  background-color: #f1f1f1;
+  user-select: none;
+}
+
+.dropdown__item:hover {
+  background-color: #70747e;
+}
