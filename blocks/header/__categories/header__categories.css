@@ -2,12 +2,12 @@
   display: flex;
   align-items: center;
   height: 40px;
+  cursor: pointer;
 }
 .header__categories span {
   font-size: 20px;
+  margin-left: 10px;
 }
-.header__categories svg {
-  height: 30px;
-  width: 40px;
-  cursor: pointer;
+.header__categories i {
+  font-size: 25px;
 }

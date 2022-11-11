@@ -8,6 +8,7 @@
   transition: all 0.3s ease;
   background-color: transparent;
   cursor: pointer;
+  width: 50px;
 }
 .search__button:hover {
   background-color: #f1f1f1;

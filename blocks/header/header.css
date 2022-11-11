@@ -3,7 +3,10 @@
   background-color: white;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 10px 10%;
+  padding: 10px;
+  padding-right: 15%;
+  padding-left: 20px;
+  height: 60px;
 }

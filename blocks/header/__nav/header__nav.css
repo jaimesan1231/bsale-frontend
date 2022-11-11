@@ -5,11 +5,6 @@
   position: relative;
   align-items: center;
 }
-.header__nav svg {
-  height: 30px;
-  width: 40px;
-  cursor: pointer;
-}
 .header__nav i {
   cursor: pointer;
   font-size: 25px;
