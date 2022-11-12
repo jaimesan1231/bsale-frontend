@@ -195,6 +195,7 @@ const handleSidebar = (e) => {
 const searchProduct = async (e) => {
   e.preventDefault();
   resetDropDown();
+  paginationList.innerHTML = "";
   let inputValue = searchInput.value;
   try {
     const res = await fetch(
@@ -203,6 +204,10 @@ const searchProduct = async (e) => {
     const data = await res.json();
     searchInput.value = "";
     if (data.length > 0) {
+      currentProducts = [...data];
+      if (currentProducts.length > 20) {
+        addPagination(currentProducts);
+      }
       listCards(data);
     } else {
       products.innerHTML = `<h3>No se encontraron resultados con la palabra: ${inputValue}</h3>`;
