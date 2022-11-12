@@ -45,8 +45,6 @@
 @import url("./blocks/card/__counter/card__counter.css");
 @import url("./blocks/card/__cant/card__cant.css");
 @import url("./blocks/card/__controller/card_controller.css");
-@import url("./blocks/card/__cart-section/card__cart-section.css");
-@import url("./blocks/card/__price-section/card__price-section.css");
 
 @import url("./blocks/sidebar/sidebar.css");
 @import url("./blocks/sidebar/__item/sidebar__item.css");

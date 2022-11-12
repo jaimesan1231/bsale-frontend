@@ -23,22 +23,22 @@ Esta tienda te permite realizar las siguientes acciones:
 
 Visualización de productos en página de inicio.
 
-![Pagina inicio](/images/screen1.jfif "Pagina inicio")
+![Página inicio](/images/screen1.jfif)
 Búsqueda de productos mediante una barra de búsqueda
 
-![Pagina inicio](/images/screen2.jfif "Pagina inicio")
+![Barra de búsqueda](/images/screen2.jfif)
 Filtración de productos por categorías
 
-![Pagina inicio](/images/screen3.jfif "Pagina inicio")
+![Sidebar de categorías](/images/screen3.jfif)
 Carrito de compras
 
-![Pagina inicio](/images/screen4.jfif "Pagina inicio")
+![Carrito de compras](/images/screen4.jfif)
 Ordenamiento de productos
 
-![Pagina inicio](/images/screen5.jfif "Pagina inicio")
-Paginacion
+![Ordenamiento de productos](/images/screen5.jfif)
+Paginación
 
-![Pagina inicio](/images/screen6.jfif "Pagina inicio")
+![Paginación](/images/screen6.jfif)
 
 ## Link de despliegue
 
