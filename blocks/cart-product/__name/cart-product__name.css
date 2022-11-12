@@ -2,3 +2,8 @@
   font-size: 18px;
   font-weight: normal;
 }
+@media screen and (max-width: 1160px) {
+  .cart-product__name {
+    font-size: 14px;
+  }
+}

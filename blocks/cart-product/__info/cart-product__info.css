@@ -1,7 +1,12 @@
 .cart-product__info {
-  width: 240px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 100%;
+  width: 200px;
+}
+@media screen and (max-width: 1160px) {
+  .cart-product__info {
+    width: 170px;
+  }
 }

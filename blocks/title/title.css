@@ -2,5 +2,12 @@
   text-align: center;
   font-size: 48px;
   text-transform: uppercase;
-  margin-top: 80px;
+  width: 100%;
+  margin: 80px auto 20px;
+}
+
+@media screen and (max-width: 1160px) {
+  .title {
+    font-size: 40px;
+  }
 }

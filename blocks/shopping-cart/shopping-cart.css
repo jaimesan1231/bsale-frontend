@@ -6,9 +6,26 @@
   position: absolute;
   z-index: 2;
   top: 50px;
+  left: -60px;
   height: 0;
   overflow: hidden;
 }
 .bottom {
   height: auto;
+}
+@media screen and (max-width: 1440px) {
+  .shopping-cart {
+    left: -250px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .shopping-cart {
+    width: 300px;
+    left: -210px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .shopping-cart {
+    left: -170px;
+  }
 }

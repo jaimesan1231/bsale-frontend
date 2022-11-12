@@ -11,3 +11,13 @@
 .header__categories i {
   font-size: 25px;
 }
+@media screen and (max-width: 1160px) {
+  .header__categories span {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header__categories {
+    position: absolute;
+  }
+}

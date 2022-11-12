@@ -21,7 +21,7 @@
         <ul class="sidebar__list" id="categories"></ul>
       </div>
       <h2 class="header__logo" id="logo">Bsale Test</h2>
-      <form class="search">
+      <form class="search" id="search">
         <input
           type="text"
           class="search__input"
@@ -29,13 +29,21 @@
           placeholder="Buscar producto"
           id="name-input"
         />
-        <button class="search__button" id="search-icon">
+        <button class="search__button" id="search-button">
           <i class="fa-solid fa-magnifying-glass search__icon"></i>
+        </button>
+        <button class="search__button close" id="search-close">
+          <i class="fa-solid fa-xmark search__icon"></i>
         </button>
       </form>
       <nav class="header__nav" id="header-nav">
+        <i
+          class="fa-solid fa-magnifying-glass search__icon"
+          id="search-icon"
+        ></i>
         <i class="fa-solid fa-house" id="home-icon"></i>
         <i class="fa-solid fa-cart-shopping" id="cart-button"> </i>
+
         <span id="cart-number">1</span>
         <div class="shopping-cart" id="shopping-cart">
           <h3 class="shopping-cart__title">Carrito de compras</h3>

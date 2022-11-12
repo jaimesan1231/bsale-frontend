@@ -27,3 +27,20 @@
   color: white;
   font-weight: 600;
 }
+.header__nav > i:first-child {
+  display: none;
+}
+@media screen and (max-width: 992px) {
+  .header__nav {
+    width: 80px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header__nav > i:first-child {
+    display: inline;
+  }
+  .header__nav {
+    width: 120px;
+  }
+}

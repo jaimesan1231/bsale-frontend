@@ -12,3 +12,9 @@
   left: 0;
   top: 50%;
 }
+
+@media screen and (max-width: 1160px) {
+  .card__old-price {
+    font-size: 13px;
+  }
+}

@@ -1,9 +1,20 @@
 .search {
-  width: 500px;
+  width: 50%;
+  min-width: 300px;
   height: 40px;
   border-radius: 20px;
   background-color: #f9f8fd;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .search {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    z-index: 3;
+    display: none;
+  }
 }

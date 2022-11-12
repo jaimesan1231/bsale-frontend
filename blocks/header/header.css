@@ -12,4 +12,18 @@
   position: fixed;
   top: 0;
   z-index: 3;
+  border-bottom: 1px solid gray;
+}
+
+@media screen and (max-width: 1440px) {
+  .header {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header {
+    justify-content: space-between;
+  }
 }

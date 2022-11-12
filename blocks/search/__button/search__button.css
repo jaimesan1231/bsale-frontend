@@ -10,6 +10,19 @@
   cursor: pointer;
   width: 50px;
 }
+.close {
+  display: none;
+  font-size: 20px;
+}
 .search__button:hover {
   background-color: #f1f1f1;
+}
+
+@media screen and (max-width: 768px) {
+  .search__button {
+    display: none;
+  }
+  .close {
+    display: inline;
+  }
 }

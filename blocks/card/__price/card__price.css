@@ -1,3 +1,8 @@
 .card__price {
   font-size: 20px;
 }
+@media screen and (max-width: 1160px) {
+  .card__price {
+    font-size: 16px;
+  }
+}

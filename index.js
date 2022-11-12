@@ -8,7 +8,6 @@ const templateFooter = document.getElementById("template-footer").content;
 
 //Se obtienen los elementos del DOM
 const products = document.getElementById("products");
-const category = document.getElementById("");
 const sidebar = document.getElementById("sidebar");
 const title = document.getElementById("title");
 const searchInput = document.getElementById("name-input");
@@ -26,12 +25,15 @@ const categoryButton = document.getElementById("category-button");
 const paginationList = document.getElementById("pagination-list");
 const logo = document.getElementById("logo");
 const cartNumber = document.getElementById("cart-number");
+const searchButton = document.getElementById("search-button");
+const searchClose = document.getElementById("search-close");
+const headerNav = document.getElementById("header-nav");
+const searchForm = document.getElementById("search");
 const searchIcon = document.getElementById("search-icon");
 
 //Variables
 let currentProducts = [];
 let cart = {};
-let pageIndex = 0;
 
 //Se obtienen los datos del API y se muestran al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
@@ -41,11 +43,16 @@ document.addEventListener("DOMContentLoaded", () => {
   listCartItems();
   checkCartNotification();
 });
-
+searchIcon.addEventListener("click", () => {
+  showSearchBar();
+});
 //Se asignan los listeners a los elementos
+searchClose.addEventListener("click", (e) => {
+  hideSearchBar(e);
+});
 dropdownHeader.addEventListener("click", () => handleDropDown());
 categoryButton.addEventListener("click", () => handleSidebar());
-searchIcon.addEventListener("click", (e) => searchProduct(e));
+searchButton.addEventListener("click", (e) => searchProduct(e));
 logo.addEventListener("click", () => getProducts());
 cartButton.addEventListener("click", () => {
   shoppingCart.classList.toggle("bottom");
@@ -104,6 +111,7 @@ const getCategories = async () => {
 
 //Borra los productos actuales de la pagina y los reemplaza con data nueva
 const listCards = (data) => {
+  console.log("entro");
   deleteCards();
   data.forEach((product) => {
     templateCard.querySelector("h2").textContent = capitalizeName(
@@ -111,6 +119,7 @@ const listCards = (data) => {
     );
     templateCard.querySelector("span").textContent = "$ " + product.price;
     templateCard.querySelector("img").setAttribute("src", product.url_image);
+    templateCard.querySelector("img").setAttribute("alt", product.name);
     templateCard.querySelector("i").dataset.id = product.id;
     //Se calcula el descuento del producto
     if (product.discount !== 0) {
@@ -154,7 +163,7 @@ const filterCategory = async (e) => {
     //Se guarda una copia de los productos actuales en un arreglo
     currentProducts = [...data];
     loadProductPage(0);
-    if (currentProducts.length > 8) {
+    if (currentProducts.length > 20) {
       addPagination(data);
     }
   } catch (error) {
@@ -164,6 +173,7 @@ const filterCategory = async (e) => {
 
 //Elimina los productos actuales de la pagina
 const deleteCards = (e) => {
+  console.log("entrooooo");
   products.innerHTML = "";
 };
 
@@ -185,6 +195,7 @@ const searchProduct = async (e) => {
     searchInput.value = "";
     if (data.length > 0) {
       console.log("hay");
+      console.log(data);
       listCards(data);
     } else {
       products.innerHTML = `<h3>No se encontraron resultados con la palabra: ${inputValue}</h3>`;
@@ -294,6 +305,7 @@ const listCartItems = () => {
       "$ " + cartItem.price;
     templateCartItem.querySelector("span").textContent = cartItem.quantity;
     templateCartItem.querySelector("img").setAttribute("src", cartItem.image);
+    templateCartItem.querySelector("img").setAttribute("alt", cartItem.name);
     templateCartItem.querySelector("i").dataset.id = cartItem.id;
     const clone = templateCartItem.cloneNode(true);
     fragment.appendChild(clone);
@@ -389,4 +401,15 @@ const checkCartNotification = () => {
   } else {
     cartNumber.style.height = "0";
   }
+};
+//Muestra la barra des busqueda en pantallas pequeñas
+const showSearchBar = (e) => {
+  searchForm.style.display = "flex";
+  headerNav.style.display = "none";
+};
+//Esconde la barra de busqueda en pantallas pequeñas
+const hideSearchBar = (e) => {
+  e.preventDefault();
+  searchForm.style.display = "none";
+  headerNav.style.display = "flex";
 };
