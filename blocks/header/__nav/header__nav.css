@@ -1,11 +1,29 @@
 .header__nav {
-  width: 200px;
+  width: 150px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   position: relative;
   align-items: center;
 }
 .header__nav i {
   cursor: pointer;
   font-size: 25px;
+}
+
+.header__nav > span {
+  position: absolute;
+  border-radius: 50%;
+  right: -10px;
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -10px;
+  font-size: 13px;
+  height: 0;
+  overflow: hidden;
+  color: white;
+  font-weight: 600;
 }

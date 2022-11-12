@@ -25,6 +25,8 @@ const cartItem = document.getElementById("cart-item");
 const categoryButton = document.getElementById("category-button");
 const paginationList = document.getElementById("pagination-list");
 const logo = document.getElementById("logo");
+const cartNumber = document.getElementById("cart-number");
+const searchIcon = document.getElementById("search-icon");
 
 //Variables
 let currentProducts = [];
@@ -34,11 +36,16 @@ let pageIndex = 0;
 //Se obtienen los datos del API y se muestran al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
   fetchData();
+  //Obtiene los items del carrito del localStorage y los agrega a la pagina
+  cart = { ...JSON.parse(localStorage.getItem("cart")) };
+  listCartItems();
+  checkCartNotification();
 });
 
 //Se asignan los listeners a los elementos
 dropdownHeader.addEventListener("click", () => handleDropDown());
 categoryButton.addEventListener("click", () => handleSidebar());
+searchIcon.addEventListener("click", (e) => searchProduct(e));
 logo.addEventListener("click", () => getProducts());
 cartButton.addEventListener("click", () => {
   shoppingCart.classList.toggle("bottom");
@@ -256,6 +263,8 @@ const addCartItem = (e) => {
     setCart(e.target.parentElement.parentElement);
     listCartItems();
     updateCartFooter();
+    // localStorage.setItem("cart",)
+    checkCartNotification();
   }
 };
 
@@ -272,6 +281,7 @@ const setCart = (card) => {
     product.quantity = cart[product.id].quantity + 1;
   }
   cart[product.id] = { ...product };
+  localStorage.setItem("cart", JSON.stringify(cart));
 };
 
 //Muestra en la pagina los items del carrito de compras
@@ -320,6 +330,8 @@ const deleteCartItem = (e) => {
   if (e.target.classList.contains("delete-icon")) {
     delete cart[e.target.dataset.id];
     listCartItems();
+    checkCartNotification();
+    localStorage.setItem("cart", JSON.stringify(cart));
   }
 };
 
@@ -365,4 +377,16 @@ const scrollUp = () => {
     behavior: "smooth",
     top: 0,
   });
+};
+
+//Verifica el carrito de compras para actualizar la notificacion
+const checkCartNotification = () => {
+  console.log(Object.keys(cart).length);
+  if (Object.keys(cart).length > 0) {
+    console.log("entrooo");
+    cartNumber.textContent = Object.keys(cart).length;
+    cartNumber.style.height = "20px";
+  } else {
+    cartNumber.style.height = "0";
+  }
 };

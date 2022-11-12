@@ -17,6 +17,9 @@
         <i class="fa-solid fa-bars"></i>
         <span>Categorías</span>
       </div>
+      <div class="sidebar" id="sidebar">
+        <ul class="sidebar__list" id="categories"></ul>
+      </div>
       <h2 class="header__logo" id="logo">Bsale Test</h2>
       <form class="search">
         <input
@@ -26,17 +29,14 @@
           placeholder="Buscar producto"
           id="name-input"
         />
-        <button
-          class="search__button"
-          id="search-icon"
-          onclick="searchProduct(event)"
-        >
+        <button class="search__button" id="search-icon">
           <i class="fa-solid fa-magnifying-glass search__icon"></i>
         </button>
       </form>
-      <nav class="header__nav">
+      <nav class="header__nav" id="header-nav">
         <i class="fa-solid fa-house" id="home-icon"></i>
-        <i class="fa-solid fa-cart-shopping" id="cart-button"></i>
+        <i class="fa-solid fa-cart-shopping" id="cart-button"> </i>
+        <span id="cart-number">1</span>
         <div class="shopping-cart" id="shopping-cart">
           <h3 class="shopping-cart__title">Carrito de compras</h3>
           <ul class="shopping-cart__list" id="cart-list">
@@ -63,9 +63,6 @@
       </nav>
     </header>
     <main>
-      <div class="sidebar" id="sidebar">
-        <ul class="sidebar__list" id="categories"></ul>
-      </div>
       <h1 class="title" id="title">Productos</h1>
       <div class="filter-section">
         <div class="dropdown">
