@@ -39,3 +39,7 @@ Ordenamiento de productos
 Paginacion
 
 ![Pagina inicio](/images/screen6.jfif "Pagina inicio")
+
+## Link de despliegue
+
+Pagina desplegada en [Vercel](https://bsale-frontend-tau.vercel.app)
