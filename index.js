@@ -71,8 +71,9 @@ dropdownList.addEventListener("click", (e) => {
     handleDropDown();
     paginationList.innerHTML = "";
     orderData(currentProducts, e.target.id);
-    console.log(currentProducts);
-    addPagination(currentProducts);
+    if (currentProducts.length > 20) {
+      addPagination(currentProducts);
+    }
     loadProductPage(0);
   }
 });
@@ -87,7 +88,9 @@ const fetchData = () => {
 const getProducts = async () => {
   try {
     title.innerHTML = "Productos";
-    const res = await fetch("http://localhost:8000/products");
+    const res = await fetch(
+      "https://bsale-backend-production-8571.up.railway.app/products"
+    );
     const data = await res.json();
     currentProducts = [...data];
     resetDropDown();
@@ -101,7 +104,9 @@ const getProducts = async () => {
 //Se obtienen los datos de las categorias y se cargan en la pagina
 const getCategories = async () => {
   try {
-    const res = await fetch("http://localhost:8000/categories");
+    const res = await fetch(
+      "https://bsale-backend-production-8571.up.railway.app/categories"
+    );
     const data = await res.json();
     listCategories(data);
   } catch (error) {
@@ -111,7 +116,6 @@ const getCategories = async () => {
 
 //Borra los productos actuales de la pagina y los reemplaza con data nueva
 const listCards = (data) => {
-  console.log("entro");
   deleteCards();
   data.forEach((product) => {
     templateCard.querySelector("h2").textContent = capitalizeName(
@@ -157,7 +161,7 @@ const filterCategory = async (e) => {
   resetDropDown();
   try {
     const res = await fetch(
-      `http://localhost:8000/products/category/${e.target.dataset.id}`
+      `https://bsale-backend-production-8571.up.railway.app/products/category/${e.target.dataset.id}`
     );
     const data = await res.json();
     //Se guarda una copia de los productos actuales en un arreglo
@@ -173,7 +177,6 @@ const filterCategory = async (e) => {
 
 //Elimina los productos actuales de la pagina
 const deleteCards = (e) => {
-  console.log("entrooooo");
   products.innerHTML = "";
 };
 
@@ -189,17 +192,14 @@ const searchProduct = async (e) => {
   let inputValue = searchInput.value;
   try {
     const res = await fetch(
-      `http://localhost:8000/products/search/${inputValue.toUpperCase()}`
+      `https://bsale-backend-production-8571.up.railway.app/products/search/${inputValue.toUpperCase()}`
     );
     const data = await res.json();
     searchInput.value = "";
     if (data.length > 0) {
-      console.log("hay");
-      console.log(data);
       listCards(data);
     } else {
       products.innerHTML = `<h3>No se encontraron resultados con la palabra: ${inputValue}</h3>`;
-      console.log("no hay");
       paginationList.innerHTML = "";
     }
   } catch (error) {
@@ -355,7 +355,6 @@ const handleDropDown = () => {
 
 //Agrega el numero de paginas a la paginacion
 const addPagination = (data, initialPage = 0) => {
-  console.log(data);
   paginationList.innerHTML = "";
   for (let i = 0; i < data.length / 20; i++) {
     const paginationNumber = document.createElement("li");
@@ -393,9 +392,7 @@ const scrollUp = () => {
 
 //Verifica el carrito de compras para actualizar la notificacion
 const checkCartNotification = () => {
-  console.log(Object.keys(cart).length);
   if (Object.keys(cart).length > 0) {
-    console.log("entrooo");
     cartNumber.textContent = Object.keys(cart).length;
     cartNumber.style.height = "20px";
   } else {
