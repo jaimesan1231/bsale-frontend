@@ -30,6 +30,7 @@ const searchClose = document.getElementById("search-close");
 const headerNav = document.getElementById("header-nav");
 const searchForm = document.getElementById("search");
 const searchIcon = document.getElementById("search-icon");
+const cardCounter = document.getElementById("card-counter");
 
 //Variables
 let currentProducts = [];
@@ -46,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 searchIcon.addEventListener("click", () => {
   showSearchBar();
 });
+
 //Se asignan los listeners a los elementos
 searchClose.addEventListener("click", (e) => {
   hideSearchBar(e);
@@ -61,7 +63,10 @@ homeButton.addEventListener("click", () => {
   getProducts();
 });
 cartList.addEventListener("click", (e) => deleteCartItem(e));
-products.addEventListener("click", (e) => addCartItem(e));
+products.addEventListener("click", (e) => {
+  updateCardCant(e);
+  addCartItem(e);
+});
 
 //Se detecta la opcion elegida y se ordenan los productos
 dropdownList.addEventListener("click", (e) => {
@@ -125,6 +130,7 @@ const listCards = (data) => {
     templateCard.querySelector("img").setAttribute("src", product.url_image);
     templateCard.querySelector("img").setAttribute("alt", product.name);
     templateCard.querySelector("i").dataset.id = product.id;
+
     //Se calcula el descuento del producto
     if (product.discount !== 0) {
       templateCard.querySelector(".card__old-price").textContent =
@@ -272,9 +278,10 @@ const addCartItem = (e) => {
   e.stopPropagation();
   if (e.target.classList.contains("cart-icon")) {
     setCart(e.target.parentElement.parentElement);
+
+    e.target.parentElement.querySelector(".card__cant").textContent = "1";
     listCartItems();
     updateCartFooter();
-    // localStorage.setItem("cart",)
     checkCartNotification();
   }
 };
@@ -286,10 +293,11 @@ const setCart = (card) => {
     name: card.querySelector("h2").textContent,
     price: card.querySelector("span").textContent.substring(2),
     image: card.querySelector("img").getAttribute("src"),
-    quantity: 1,
+    quantity: parseInt(card.querySelector(".card__cant").textContent),
   };
   if (cart.hasOwnProperty(product.id)) {
-    product.quantity = cart[product.id].quantity + 1;
+    console.log(typeof product.quantity);
+    product.quantity = cart[product.id].quantity + product.quantity;
   }
   cart[product.id] = { ...product };
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -409,4 +417,18 @@ const hideSearchBar = (e) => {
   e.preventDefault();
   searchForm.style.display = "none";
   headerNav.style.display = "flex";
+};
+
+//Actualiza la cantidad e productos en la carta
+const updateCardCant = (e) => {
+  e.preventDefault();
+  if (e.target.classList.contains("fa-plus")) {
+    let card = e.target.parentElement.parentElement;
+    card.querySelector("span").textContent++;
+  } else if (e.target.classList.contains("fa-minus")) {
+    let card = e.target.parentElement.parentElement;
+    if (card.querySelector("span").textContent > 1) {
+      card.querySelector("span").textContent--;
+    }
+  }
 };

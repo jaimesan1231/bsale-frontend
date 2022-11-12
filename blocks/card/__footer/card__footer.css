@@ -1,11 +1,12 @@
 .card__footer {
-  height: 50px;
+  height: 70px;
   display: flex;
   position: relative;
   justify-content: space-around;
   align-items: center;
   width: 100%;
   border-top: 1px solid gray;
+  align-items: center;
 }
 .card__footer i {
   cursor: pointer;

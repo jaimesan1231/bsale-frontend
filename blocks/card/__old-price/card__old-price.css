@@ -1,7 +1,7 @@
 .card__old-price {
   position: relative;
   color: #8b8b8b;
-  left: -30px;
+  left: -10px;
 }
 .card__old-price::after {
   content: "";
@@ -16,5 +16,6 @@
 @media screen and (max-width: 1160px) {
   .card__old-price {
     font-size: 13px;
+    left: -5px;
   }
 }

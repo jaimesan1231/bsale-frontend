@@ -1,0 +1,7 @@
+.card__counter {
+  display: grid;
+  width: 70px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 40px;
+}

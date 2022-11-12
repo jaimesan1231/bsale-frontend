@@ -1,0 +1,14 @@
+.card__controller {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  justify-self: center;
+  border: none;
+  border: 1px solid #c2c2c2;
+}
+.card__controller i {
+  font-size: 10px;
+}
