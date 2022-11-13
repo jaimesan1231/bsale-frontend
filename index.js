@@ -301,7 +301,6 @@ const setCart = (card) => {
     quantity: parseInt(card.querySelector(".card__cant").textContent),
   };
   if (cart.hasOwnProperty(product.id)) {
-    console.log(typeof product.quantity);
     product.quantity = cart[product.id].quantity + product.quantity;
   }
   cart[product.id] = { ...product };
